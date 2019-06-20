@@ -4,9 +4,13 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        Inventory.cpp \
         city.cpp \
-        main.cpp
+        main.cpp \
+        player.cpp
 
 HEADERS += \
     city.h \
-    item.h
+    inventory.h \
+    item.h \
+    player.h
