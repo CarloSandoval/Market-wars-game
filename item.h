@@ -37,6 +37,8 @@ class Item
         std::string getName(){ return itemName; }
         void setName(std::string s){itemName = s;}
 
+        friend std::ostream& operator<<(std::ostream& os, const Item&);
+
 };
 
 #endif // ITEM_H

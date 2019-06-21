@@ -6,15 +6,16 @@
 #ifndef CITY_H
 #define CITY_H
 
-#include "item.h"
-#include <vector>
+#include "inventory.h"
+#include "event.h"
 
 class City
 {
     private:
     //private data members
        std::string cityName;
-       std::vector <Item> items;
+       Inventory inventory;
+       std::vector<Event> events;
 
      //private member functions for use by other member functions
        double getRandomPercent();
@@ -24,13 +25,15 @@ class City
        City(std::string name);
 
     //public setters and getters
-       std::vector<Item> getItems();
+       Inventory getItems();
        void setItems(std::vector<Item>);
 
        std::string getName();     
 
        //add additional items to the city
        void addItem(Item);
+
+       void addEvent();
 };
 
 #endif // CITY_H
