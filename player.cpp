@@ -21,20 +21,42 @@ bool Player::hasDaysLeft()
 
 Inventory& Player::getInventory()
 {
-    return inventory;
+    return *inventory;
 }
 
-void Player::setBalance(int _balance)
+void Player::setBalance(double _balance)
 {
     balance = _balance;
 }
 
-int Player::getBalance()
+double Player::getBalance()
 {
     return balance;
 }
 
 void Player::displayStatusBar()
 {
-    std::cout<<"Current City: "<< currentCity->getName()<<".      Balance: "<<balance<<"$,      Days Left: "<<daysLeft;
+    std::cout<<"Current City: "<< currentCity->getName()<<".      Balance: "<<balance<<"$,      Days Left: "<<daysLeft<<std::endl<<std::endl;
+}
+
+void Player::increaseBalance(int x)
+{
+    balance += abs(x);
+}
+
+void Player::decreaseBalance(int x)
+{
+    balance -= abs(x);
+}
+void Player::decreaseDayLeft(int x)
+{
+    daysLeft -= abs(x);
+}
+
+
+
+//NEED TO BE FIXED @@@@@@@@@@@@@@@
+void Player::setInventory(Inventory* _inventory)
+{
+    inventory = _inventory;
 }

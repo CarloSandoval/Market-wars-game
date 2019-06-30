@@ -50,16 +50,17 @@ bool CA::promptForBoolean(std::string str)
 
 int CA::promptForInt(std::string str, int min, int max)
 {
-    int userInteger;
+    int userInteger = min;
 
     std::cout<<str<<std::endl;
-
-    while(!(std::cin >> userInteger) && userInteger >= min && userInteger <= max)
+    //&& (userInteger < min) && (userInteger > max)
+    while(!(std::cin >> userInteger) || (userInteger < min) || (userInteger > max))
     {
         log("Plese enter a valid number", ERROR);
         std::cin.clear(); // reset failbit
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //skip bad input
     }
+
 
     return userInteger;
 }
@@ -92,7 +93,6 @@ void CA::log(const char* msg, int role)
         break;
     }
 }
-
 
 void CA::wait()
 {

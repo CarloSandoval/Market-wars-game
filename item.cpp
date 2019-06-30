@@ -3,6 +3,6 @@
 
 std::ostream& operator<<(std::ostream& os, const Item& item)
 {
-    os<<" Name: "<<item.itemName<<", Cost: "<<item.itemUnitCost<<"$, Quantity: "<<item.itemUnitCost;
+    os<<"Name: "<<item.itemName<<", Cost: "<<item.itemUnitCost<<"$, Quantity: "<<item.itemQuantity;
     return os;
 }

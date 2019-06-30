@@ -17,7 +17,6 @@ public:
     static int promptForInt(std::string str, int min, int max);
     static void log(const char* msg, int role);
 
-
 };
 
 

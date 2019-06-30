@@ -6,7 +6,10 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include <stdlib.h>     /* srand, rand */
 #include <string>
+
+
 
 class Item
 {
@@ -14,14 +17,21 @@ class Item
     private:
         std::string itemName;
         double itemUnitCost;
-        int itemQuantity;
 
     public:
+        int itemQuantity;
+
         //new C++11 constructor delegation
         Item(std::string name)
-            : itemName(name), itemUnitCost(0), itemQuantity(0) {}
+            : itemName(name)
+        {
+            generateRandomCost();
+            generateRandomQuantity();
+        }
         Item(std::string name, double cost)
-            : itemName(name), itemUnitCost(cost), itemQuantity(0) {}
+
+            : itemName(name), itemUnitCost(cost) { generateRandomQuantity(); }
+
         Item(std::string name, double cost, int qty)
         //set default values
             : itemName(name), itemUnitCost(cost), itemQuantity(qty) {}
@@ -39,6 +49,18 @@ class Item
 
         friend std::ostream& operator<<(std::ostream& os, const Item&);
 
+        void generateRandomCost()
+        {
+            itemUnitCost = rand() % 10 + 0;
+        }
+        void generateRandomQuantity()
+        {
+            itemQuantity = (int)(rand() % 10 + 0);
+        }
+
+        void increaseQuantityBy(int x){ itemQuantity+= abs(x);}
+
+        void decreaseQuantityBy(int x){ itemQuantity = ((itemQuantity-abs(x))<=0)?0:itemQuantity-abs(x);}
 };
 
 #endif // ITEM_H

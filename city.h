@@ -11,15 +11,7 @@
 
 class City
 {
-    private:
-    //private data members
-       std::string cityName;
-       Inventory inventory;
-       std::vector<Event> events;
 
-     //private member functions for use by other member functions
-       double getRandomPercent();
-       int getRandomQuantity();
 
     public:
        City(std::string name);
@@ -31,9 +23,20 @@ class City
        std::string getName();     
 
        //add additional items to the city
-       void addItem(Item);
-
        void addEvent();
+
+       void setInventory(Inventory* inv){ inventory = inv;}
+       Inventory* getInventory(){ return inventory;}
+
+private:
+//private data members
+   std::string cityName;
+   Inventory* inventory;
+   std::vector<Event>* events;
+
+ //private member functions for use by other member functions
+   double getRandomPercent();
+   int getRandomQuantity();
 };
 
 #endif // CITY_H

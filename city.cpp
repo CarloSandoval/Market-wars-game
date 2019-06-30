@@ -5,9 +5,9 @@ City::City(std::string n)
 {
     cityName = n;
 }
-void City::addItem(Item i)
-{
-}
+//void City::addItem(Item i)
+//{
+//}
 void City::setItems(std::vector<Item> its)
 {
     //clear the current items
@@ -18,10 +18,10 @@ void City::setItems(std::vector<Item> its)
 //       items.push_back(it);
 //   }
 }
-Inventory City::getItems()
-{
-    return inventory;
-}
+//Inventory City::getItems()
+//{
+//    return inventory;
+//}
 std::string City::getName()
 {
     return cityName;
